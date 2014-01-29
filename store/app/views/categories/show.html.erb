@@ -1,0 +1,9 @@
+<h4><%= @category.name %></h4>
+
+<h5>Products:</h5>
+<ul>
+<% @products.each do |p| %>
+  <li>
+    <%= p.name %> ($<%= p.price %>)
+  </li>
+<% end %>
