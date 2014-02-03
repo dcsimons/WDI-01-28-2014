@@ -7,3 +7,6 @@
     <%= c.name %>
   </li>
 <% end %>
+<%= button_to "Update Product", "/products/#{@product.id}/edit", method: :get, class: "btn btn-md btn-primary" %>
+<%= button_to "Delete Product", "/products/#{@product.id}", method: :delete, class: "btn btn-md btn-primary", confirm: "Are you sure you want to delete #{@product.name}?" %>
+<%= button_to "All Products", "/products", method: :get, class: "btn btn-md btn-primary" %>

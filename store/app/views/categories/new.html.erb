@@ -1,0 +1,14 @@
+<h1>New Category</h1>
+
+<%= form_for :category, url: "/categories" do |f| %>
+	<%= f.label "Name: " %>
+	<%= f.text_field :name, placeholder: "Enter Category Name" %><br>
+
+	<% @products.each do |p| %>
+		<%= check_box_tag "products[]", p.id %>
+		<%= f.label p.name %><br>
+	<% end %>
+
+
+	<%= f.submit "Save", class: "btn btn-md btn-primary" %>
+<% end %>

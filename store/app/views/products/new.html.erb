@@ -1,0 +1,17 @@
+<h1>New Product</h1>
+
+<%= form_for :product, url: "/products" do |f| %>
+	<%= f.label "Name: " %>
+	<%= f.text_field :name, placeholder: "Enter Product Name" %><br>
+
+	<%= f.label "Price: " %>
+	<%= f.text_field :price, placeholder: "Enter Price" %><br>
+
+	<% @categories.each do |c| %>
+		<%= check_box_tag "categories[]", c.id %>
+		<%= f.label c.name %><br>
+	<% end %>
+
+
+	<%= f.submit "Save", class: "btn btn-md btn-primary" %>
+<% end %>

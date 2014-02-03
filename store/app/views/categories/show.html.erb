@@ -7,3 +7,6 @@
     <%= p.name %> ($<%= p.price %>)
   </li>
 <% end %>
+<%= button_to "Update Category", "/categories/#{@category.id}/edit", method: :get, class: "btn btn-md btn-primary" %>
+<%= button_to "Delete Category", "/categories/#{@category.id}", method: :delete, class: "btn btn-md btn-primary" %>
+<%= button_to "All Categories", "/categories", method: :get, class: "btn btn-md btn-primary" %>

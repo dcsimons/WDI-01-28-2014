@@ -1,0 +1,19 @@
+<h1>Edit <%= @category.name %></h1>
+
+<%= form_for :category, url: "/categories/#{@category.id}", method: :patch do |f| %>
+	<%= f.label "Name: " %>
+	<%= f.text_field :name, placeholder: "Enter Category Name", value: @category.name %><br>
+
+	<% @products.each do |p| %>
+		<% if @category.products.include?(p) %>
+			<%= check_box_tag "products[]", p.id, true %>
+			<%= f.label p.name %><br>
+		<% else %>
+			<%= check_box_tag "products[]", p.id %>
+			<%= f.label p.name %><br>
+		<% end %>
+	<% end %>
+
+
+	<%= f.submit "Update", class: "btn btn-md btn-primary" %>
+<% end %>

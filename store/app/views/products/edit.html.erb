@@ -1,0 +1,22 @@
+<h1>Edit <%= @product.name %> ($<%= @product.price %>)</h1>
+
+<%= form_for :product, url: "/products/#{@product.id}", method: :patch do |f| %>
+	<%= f.label "Name: " %>
+	<%= f.text_field :name, placeholder: "Enter Product Name", value: @product.name %><br>
+
+	<%= f.label "Price: " %>
+	<%= f.text_field :price, placeholder: "Enter Price", value: @product.price %><br>
+
+	<% @categories.each do |c| %>
+		<% if @product.categories.include?(c) %>
+			<%= check_box_tag "categories[]", c.id, true %>
+			<%= f.label c.name %><br>
+		<% else %>
+			<%= check_box_tag "categories[]", c.id %>
+			<%= f.label c.name %><br>
+		<% end %>
+	<% end %>
+
+
+	<%= f.submit "Update", class: "btn btn-md btn-primary" %>
+<% end %>
